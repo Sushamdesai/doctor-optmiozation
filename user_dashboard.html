@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+</head>
+<body>
+{% for name in live_dr %}
+<form action="/user_dashboard" method="post">
+    <input type="hidden" name="dr_name" value="{{ name[0] }}">
+    <input type="submit" value="{{ name[0] }}">
+</form>
+{% endfor %}
+
+</body>
+</html>

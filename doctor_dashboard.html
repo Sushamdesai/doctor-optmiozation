@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doctor dashboard</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Patient</th>
+    <th>Mobile no.</th>
+    <th>Status</th>
+  </tr>
+  {% for row in data %}
+  <tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>
+      <form action="/delete" method="post">
+        <input type="hidden" name="name" value="{{ row[0] }}">
+        <input type="submit" value="Done">
+      </form>
+    </td>
+  {% endfor %}
+</table>
+<br><br>
+  <h3><a href="{{ meetlink[0] }}">Your meeting link</a></h3>
+  <form action="/update" method="post">
+    <label>Update link if : </label>
+    <input type="text" name="meetlink">
+    <br><br>
+    <input type="submit" value="Update">
+  </form>
+  <br><br><br><br>
+  <form action="/doctor_logout" method="post">
+        <input type="hidden" name="logout" value="logout">
+        <input type="submit" value="logout">
+  </form>
+</body>
+</html>
